@@ -1,0 +1,9 @@
+-- Onseal M1 — pgvector 초기화
+-- [reviewer 모드 — 당신이 작성, 제가 검토]
+--
+-- 여기서 결정/작성할 것:
+--   1) CREATE EXTENSION vector;
+--   2) 청크 테이블: 본문 + 메타데이터(출처) + vector(EMBEDDING_DIM)
+--   3) 유사도 인덱스 (ivfflat / hnsw) — retrieval.py 의 연산자와 일치
+--
+-- TODO: 직접 작성.

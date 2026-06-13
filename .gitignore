@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Env / secrets
+.env
+*.local
+
+# Data / models (에어갭: 모델·문서 산출물은 레포에 넣지 않음)
+models/
+data/
+*.gguf
+*.safetensors
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# 오픈코어: 비공개(전략 문서·운영 지침·로컬 학습 도구) — public 골격에서 제외
+docs/PROJECT_OVERVIEW.md
+CLAUDE.md
+.claude/

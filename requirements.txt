@@ -1,0 +1,20 @@
+# Onseal M1 의존성
+# 에어갭 메모: 빌드(이미지 생성) 시점엔 네트워크 OK. 런타임에 외부 콜 0이 원칙.
+# 임베딩/LLM 모델 가중치는 이미지에 미리 굽거나 볼륨으로 주입 (런타임 다운로드 금지).
+
+fastapi
+uvicorn[standard]
+pydantic-settings
+
+# Postgres / pgvector
+psycopg[binary]
+
+# Ollama 호출 (로컬 HTTP)
+httpx
+
+# 로컬 임베딩 (모델 가중치는 별도 주입)
+sentence-transformers
+
+# 문서 로딩/청킹 (필요시 추가 — 직접 선택)
+# pypdf
+# python-docx
