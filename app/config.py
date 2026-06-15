@@ -15,8 +15,8 @@ class Settings(BaseSettings):
     ollama_host: str = "http://ollama:11434"
     ollama_model: str = "qwen2.5:3b"
 
-    embedding_model: str = ""
-    embedding_dim: int = 0
+    embedding_model: str = "BAAI/bge-m3"
+    embedding_dim: int = 1024
 
     @property
     def database_url(self) -> str:

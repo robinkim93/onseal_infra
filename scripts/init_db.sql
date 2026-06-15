@@ -7,3 +7,18 @@
 --   3) 유사도 인덱스 (ivfflat / hnsw) — retrieval.py 의 연산자와 일치
 --
 -- TODO: 직접 작성.
+
+CREATE EXTENSION IF NOT EXISTS vector;
+
+CREATE TABLE IF NOT EXISTS chunks  (
+    id SERIAL PRIMARY KEY,
+    chunk TEXT NOT NULL,
+    metadata JSONB NOT NULL,
+    embedding VECTOR(1024) NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_chunks_embedding ON chunks USING hnsw (embedding vector_cosine_ops);
+
+
+
+
