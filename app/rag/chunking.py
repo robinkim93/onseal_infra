@@ -11,5 +11,18 @@ TODO: 직접 구현. 검토 요청 시 reviewer 모드로 봐줌.
 """
 
 
-def chunk_text(text: str) -> list[str]:
-    raise NotImplementedError
+def chunk_text(text: str) -> list[str]: 
+    size = 500
+    overlap = 50
+    step = size - overlap
+
+    out = []
+
+    for i in range(0, len(text), step):
+      chunk = text[i:i+size]
+      out.append(chunk)
+
+    if len(out) >= 2 and len(out[-1]) < overlap:
+      out.pop()
+
+    return out
