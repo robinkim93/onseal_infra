@@ -40,6 +40,7 @@ services:
       POSTGRES_PORT: ${POSTGRES_PORT}
       OLLAMA_HOST: ${OLLAMA_HOST}
       OLLAMA_MODEL: ${OLLAMA_MODEL}
+      HF_HUB_OFFLINE: "1"
     depends_on:
       db:
         condition: service_healthy

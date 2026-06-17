@@ -8,6 +8,8 @@ RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/wh
 # 2) 나머지 의존성 — torch는 이미 설치되어 다시 받지 않음
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
+RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('BAAI/bge-m3')"
+
 COPY app /app/app
 
 WORKDIR /app
