@@ -2,6 +2,8 @@
 
 from fastapi import FastAPI
 
+from app.api.routes import router
+
 app = FastAPI(title="Onseal", version="0.1.0")
 
 
@@ -10,4 +12,4 @@ def health() -> dict:
     return {"status": "ok"}
 
 
-# TODO(reviewer): /ingest, /query 라우트 — app/api/ 에 작성 후 여기서 include_router
+app.include_router(router)

@@ -1,5 +1,7 @@
 """환경설정 — pydantic-settings 로 .env 로드. [delegate 스캐폴딩]"""
 
+from urllib.parse import quote
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -20,9 +22,13 @@ class Settings(BaseSettings):
 
     @property
     def database_url(self) -> str:
+        # 자격증명에 @ : / 같은 특수문자가 있으면 URL 구분자와 충돌 → 각 값을 percent-encode.
+        user = quote(self.postgres_user, safe="")
+        password = quote(self.postgres_password, safe="")
+        db = quote(self.postgres_db, safe="")
         return (
-            f"postgresql://{self.postgres_user}:{self.postgres_password}"
-            f"@{self.postgres_host}:{self.postgres_port}/{self.postgres_db}"
+            f"postgresql://{user}:{password}"
+            f"@{self.postgres_host}:{self.postgres_port}/{db}"
         )
 
 
