@@ -13,6 +13,7 @@ venv/
 # Data / models (에어갭: 모델·문서 산출물은 레포에 넣지 않음)
 models/
 data/
+model-export/
 *.gguf
 *.safetensors
 
