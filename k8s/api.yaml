@@ -36,6 +36,11 @@ spec:
                   key: POSTGRES_DB
             - name: POSTGRES_HOST
               value: db
+            # 모델은 PVC(/models)에서 로드, 외부 다운로드 차단(에어갭)
+            - name: HF_HOME
+              value: /models
+            - name: HF_HUB_OFFLINE
+              value: "1"
           volumeMounts:
             - mountPath: /models
               name: model-volume
